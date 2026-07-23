@@ -4,6 +4,9 @@ from schema.user_input import UserInput
 from schema.prediction_response import PredictionResponse
 from Model.predict import predict_output, model, MODEL_VERSION
 
+
+#Upper imported file form different folder which is created and prexsiting
+
 app = FastAPI()
 
 # human readable       
