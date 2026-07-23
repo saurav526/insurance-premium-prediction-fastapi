@@ -11,6 +11,22 @@ with open('Model/model.pkl', 'rb') as f:
 
 app = FastAPI()
 
+MODEL_VERSION = '1.0.0'
+
+
+@app.get('/')
+def home():
+    return {'message':'Insurance Premium Prediction API'}
+
+# machine readable
+@app.get('/health')
+def health_check():
+    return {
+        'status': 'OK',
+        'version': MODEL_VERSION,
+        'model_loaded': model is not None
+    }
+
 tier_1_cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"]
 tier_2_cities = [
     "Jaipur", "Chandigarh", "Indore", "Lucknow", "Patna", "Ranchi", "Visakhapatnam", "Coimbatore",
